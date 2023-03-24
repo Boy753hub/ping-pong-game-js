@@ -75,8 +75,13 @@ function drawBall(){
 // check for collision of ball and something about that
 function checkCollision() {
     //height of pillar
-    pillarHeight1 =[pillarY, pillarY +1, pillarY +2, pillarY+3, pillarY+4]
-    pillarHeight2 =[pillar2Y, pillar2Y +1, pillar2Y +2, pillar2Y+3, pillar2Y+4]
+    let pillarHeight1 = [];
+    let pillarHeight2 = [];
+
+    for (let i = 0; i < 5; i++) {
+    pillarHeight1.push(pillarY + i);
+    pillarHeight2.push(pillar2Y + i);
+    }
 
     if (BallX == 0){
         BallX = 10
@@ -86,7 +91,7 @@ function checkCollision() {
     if (BallX == tileSize){
         BallX = 10
         BallY = 10
-    player1Score++
+        player1Score++
 }
 if(Math.floor(BallY) == 0 || Math.floor(BallY) == tileSize -1){
     yvelocity = -yvelocity
